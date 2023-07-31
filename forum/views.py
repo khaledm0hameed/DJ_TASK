@@ -26,3 +26,18 @@ def Question_detail(request, pk):
         form = AnswersForms()
 
     return render(request, 'detail.html', {'ques': question, 'form': form, 'Answer':Answer })
+
+
+class Question_delet(DeleteView):
+    model = Question
+    success_url = '/'
+    context_object_name = 'ques'
+    
+
+class Question_create(CreateView):
+    model = Question
+    fields =['created_at','tags','question','Content']
+    success_url = '/'
+    template_name ='add.html'
+
+

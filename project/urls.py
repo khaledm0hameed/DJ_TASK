@@ -16,9 +16,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from forum.views import Question_list,Question_detail
+from forum.views import Question_list,Question_detail,Question_delet , Question_create
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',Question_list.as_view()),
     path('<int:pk>',Question_detail),
+    path('<int:pk>/delet',Question_delet.as_view()),
+    path('<int:pk>/new',Question_create.as_view()),
 ]
