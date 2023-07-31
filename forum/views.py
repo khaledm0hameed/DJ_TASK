@@ -40,4 +40,8 @@ class Question_create(CreateView):
     success_url = '/'
     template_name ='add.html'
 
-
+class Question_edit(UpdateView):
+    model = Question
+    fields =['created_at','tags','question','Content']
+    success_url = '/'
+    template_name ='add.html'
