@@ -16,8 +16,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from forum.views import Question_list
+from forum.views import Question_list,Question_detail
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',Question_list.as_view())
+    path('',Question_list.as_view()),
+    path('<int:pk>',Question_detail),
 ]

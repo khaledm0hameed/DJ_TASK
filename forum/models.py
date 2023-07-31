@@ -27,9 +27,15 @@ class Question(models.Model):
     question = models.CharField(max_length=20000)
     Content = models.CharField(max_length=20000)
 
+    def __str__(self):
+        return self.question
 
 class Answers(models.Model):
     Author=models.ForeignKey(User,on_delete=models.SET_NULL,null=True,blank=True)
     created_at = models.DateField(default=timezone.now)
     Answer = models.CharField(max_length=1000)
     question = models.ForeignKey(Question,on_delete=models.CASCADE,related_name="Answers_Question")
+
+
+    def __str__(self):
+        return self.Answer
